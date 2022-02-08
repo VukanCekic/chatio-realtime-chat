@@ -1,0 +1,49 @@
+.chat__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .activeItem {
+    margin-left: 1rem;
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border-radius: 8px;
+    height: 60%;
+    width: 35%;
+  }
+  
+  @media (min-width: 230px) and (max-width: 480px) {
+    .chat__container {
+      flex-direction: column;
+      
+    }
+
+    .activeItem{
+      margin-left: 0rem;
+
+    }
+ 
+
+    .container {
+      width: 90%;
+      height: 80%;
+    }
+  }
+  
+  @media (min-width: 480px) and (max-width: 1200px) {
+    .container {
+      width: 60%;
+    }
+  }
