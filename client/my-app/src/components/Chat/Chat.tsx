@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import queryString from "query-string";
-import io, { Socket } from "socket.io-client";
+import io from "socket.io-client";
 import { MouseEvent, KeyboardEvent } from "react";
 import { useLocation } from "react-router-dom";
 import CustomError from "../../interfaces/CustomError";
@@ -9,8 +9,8 @@ import InfoBar from "../InfoBar/InfoBar";
 import Messages from "../Messages/Messages";
 
 import "./Chat.css";
+let socket: SocketIOClient.Socket;
 
-let socket: Socket;
 
 const Chat: React.FunctionComponent = (props) => {
   const [myName, setName] = useState("");
@@ -43,7 +43,7 @@ const Chat: React.FunctionComponent = (props) => {
       setMessages((messages) => [...messages, message]);
     });
 
-    socket.on("roomData", ({ users }) => {
+    socket.on("roomData", ({ users }: { users: {id: string; name: string; room: string}[]}) => {
       setUsers(users);
     });
   }, []);
